@@ -16,7 +16,7 @@ namespace Activity
             string password = "";
             connectionString = $"SERVER={server};DATABASE={database};UID={uid};PASSWORD={password};";
         }
-
+        //Insert Data
         public void InsertData(string username, string userPassword)
         {
             try
@@ -40,6 +40,7 @@ namespace Activity
             }
         }
 
+        //Check User Credentials
         public bool ValidateLogin(string username, string userPassword)
         {
             try
@@ -63,6 +64,7 @@ namespace Activity
                 return false;
             }
         }
+        //Check Existing users
         public bool UserExists(string username)
         {
             try
@@ -85,6 +87,7 @@ namespace Activity
                 return false;
             }
         }
+        //Check Exising Product
         public bool CheckProduct(string productName)
         {
             try
@@ -109,6 +112,7 @@ namespace Activity
             }
             
         }
+        //Count Products
         public bool CheckProductLimit()
         {
            
@@ -122,7 +126,7 @@ namespace Activity
                     using (MySqlCommand cmd = new MySqlCommand(countQuery, connection))
                     {
                         int count = Convert.ToInt32(cmd.ExecuteScalar());
-                        Console.WriteLine(count);
+                        
                         return count < 11;
                     }
 
@@ -136,7 +140,7 @@ namespace Activity
             }
         }
 
-
+        //Insert Porducts
         public void insertProduct(string productName, float productPrice, string productDescription)
         {
             try
@@ -184,6 +188,7 @@ namespace Activity
             }
 
         }
+        //Delete Products
         public void DeleteProduct(string productName)
         {
             try
