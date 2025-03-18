@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using Figgle;
 using Console = Colorful.Console;
 
 namespace Activity
@@ -12,6 +13,7 @@ namespace Activity
             {
                 Console.Clear(); 
                 int consoleWidth = Console.WindowWidth;
+                
 
                 string title = @"       
                             ▐▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▌
@@ -35,7 +37,7 @@ namespace Activity
 
                 Console.WriteLine(title, Color.Blue);
 
-                string[] options = { "Register", "Login", "Logout", "Exit" };
+                string[] options = { "Register", "Login", "Products", "Delete Products", "Logout", "Exit"};
                 int selectedIndex = 0;
 
                 
@@ -98,12 +100,20 @@ namespace Activity
                     Activity.Login_register.Login();
                     break;
                 case 2:
-                    Activity.Login_register.Logout();
+                    Activity.Product.ProductMenu();
                     break;
                 case 3:
+                    Activity.DeleteProduct.Delete();
+                    break;
+                case 4:
+                    Activity.Login_register.Logout();
+                    break;
+                case 5:
                     Console.WriteLine("Exiting...", Color.Red);
                     Environment.Exit(0);
                     break;
+
+
             }
 
             Console.WriteLine("\nPress any key to return to the menu...", Color.Red);
